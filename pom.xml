@@ -6,4 +6,7 @@
   <packaging>war</packaging>
   <name>simpleproject</name>
   <description>simple project to test</description>
+  <build>
+    <finalName>simpleproject</finalName>
+  </build>
 </project>
