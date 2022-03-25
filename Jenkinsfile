@@ -30,6 +30,7 @@ node{
     		dir("$tomcatBin"){
 			sh 'sudo -u tomcat ./startup.sh'
 		}
+		}
 	}
      
 }
