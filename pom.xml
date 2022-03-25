@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.simpleproject</groupId>
   <artifactId>simpleproject</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>v1</version>
   <packaging>war</packaging>
   <name>simpleproject</name>
   <description>simple project to test</description>
   <build>
-    <finalName>simpleproject</finalName>
+    <finalName>simpleproject_${v1}</finalName>
   </build>
 </project>
