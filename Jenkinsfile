@@ -19,14 +19,15 @@ node{
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     		dir("$tomcatBin"){
-			sh './shutdown.sh'
+			sh 'sudo -u tomcat ./shutdown.sh'
 		}
 		}
 		
 		dir("$deployPath") {
     			sh 'curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war'
 		}
-		dir("$tomcatBin"){
+		sshagent(['tomcatID']) {
+    		dir("$tomcatBin"){
 			sh 'sudo -u tomcat ./startup.sh'
 		}
 	}
