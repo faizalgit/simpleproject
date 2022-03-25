@@ -15,8 +15,8 @@ node{
 	
       	}
 	stage("deploy"){
-		tomcatBin=/opt/tomcat/bin
-		deployPath=/opt/tomcat/webapp
+		tomcatBin='/opt/tomcat/bin'
+		deployPath='/opt/tomcat/webapp'
 		sh '${tomcatBin}/shutdown.sh'
 		dir("folder") {
     			sh 'curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war'
