@@ -5,7 +5,7 @@ def tomcatBin
 def deployPath
 def targetServer
 node{
-	targetServer='34.142.247.158'
+	
       	stage("compile"){
             if (fileExists('simpleproject')){
                   sh 'rm -r simpleproject'
@@ -17,11 +17,12 @@ node{
 	
       	}
 	stage("deploy"){
+		targetServer='34.142.247.158'
 		tomcatBin='/opt/tomcat/bin'
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     		
-			sh 'ssh tomcat@'targetServer 'hostname '
+			sh 'ssh tomcat@${targetServer} hostname '
 		
 		}
 		
@@ -30,7 +31,7 @@ node{
 		//}
 		sshagent(['tomcatID']) {
     		
-			sh 'ssh tomcat@'targetServer 'hostname'
+			sh 'ssh tomcat@{targetServer} hostname'
 		
 		}
 	}
