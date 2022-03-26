@@ -22,7 +22,7 @@ node{
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     			echo env.targetServer
-			sh "ssh tomcat@34.142.247.158 hostname"
+			sh "ssh tomcat@env.targetServer hostname"
 		
 		}
 		
