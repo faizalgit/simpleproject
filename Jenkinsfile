@@ -22,7 +22,7 @@ node{
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     			echo env.targetServer
-			sh "ssh tomcat@${env.targetServer} ${tomcatBin}/shutdown.sh"
+			sh "ssh tomcat@${env.targetServer} ${tomcatBin}/startup.sh"
 		
 		}
 		
