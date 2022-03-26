@@ -19,7 +19,7 @@ node{
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     		
-			sh 'ssh tomcat@10.148.0.2 hostname'
+			sh 'ssh tomcat@10.148.0.2 '
 		
 		}
 		
