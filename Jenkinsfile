@@ -17,12 +17,12 @@ node{
 	
       	}
 	stage("deploy"){
-		targetServer='34.142.247.158'
+		env.targetServer='34.142.247.158'
 		tomcatBin='/opt/tomcat/bin'
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     			echo targetServer
-			sh 'ssh tomcat@"${targetServer}" hostname '
+			sh 'ssh tomcat@${env.targetServer} hostname '
 		
 		}
 		
@@ -31,7 +31,7 @@ node{
 		//}
 		sshagent(['tomcatID']) {
     		
-			sh 'ssh tomcat@"${targetServer}" hostname'
+			sh 'ssh tomcat@${env.targetServer} hostname'
 		
 		}
 	}
