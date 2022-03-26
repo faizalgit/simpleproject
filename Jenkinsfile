@@ -22,18 +22,18 @@ node{
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     			echo env.targetServer
-			sh 'ssh tomcat@env.targetServer hostname '
+			sh 'ssh tomcat@"env.targetServer" hostname '
 		
 		}
 		
 		//dir("$deployPath") {
     		//	sh 'curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war'
 		//}
-		sshagent(['tomcatID']) {
+		//sshagent(['tomcatID']) {
     		
-			sh 'ssh tomcat@env.targetServer hostname'
+		//	sh 'ssh tomcat@env.targetServer hostname'
 		
-		}
+		//}
 	}
      
 }
