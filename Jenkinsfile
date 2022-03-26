@@ -23,9 +23,9 @@ node{
 		
 		}
 		
-		dir("$deployPath") {
-    			sh 'curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war'
-		}
+		//dir("$deployPath") {
+    		//	sh 'curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war'
+		//}
 		sshagent(['tomcatID']) {
     		
 			sh 'ssh tomcat@10.148.0.2 hostname'
