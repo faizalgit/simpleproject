@@ -18,7 +18,7 @@ node{
             git credentialsId: 'FaizalGit', url: 'https://github.com/faizalgit/simpleproject'
             sh 'git clone https://github.com/faizalgit/simpleproject'
 	    sh 'mvn package'
-	    writeFile( file : 'verstionInfo.txt' text : version )
+	    writeFile( file : 'verstionInfo.txt', text : version )
 	    nexusArtifactUploader artifacts: [[artifactId: 'simpleproject', classifier: '', file: 'target/simpleproject.war', type: 'war']], credentialsId: 'nexus-upload', groupId: 'com.simpleproject', nexusUrl: '104.196.30.112:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-nexus-repo', version: 'v1'
 	
       	}
