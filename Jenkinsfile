@@ -3,7 +3,9 @@ def modifiedFiles
 def skipBuild
 def tomcatBin
 def deployPath
+def targetServer
 node{
+	targetServer='34.142.247.158'
       	stage("compile"){
             if (fileExists('simpleproject')){
                   sh 'rm -r simpleproject'
@@ -19,7 +21,7 @@ node{
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
     		
-			sh 'ssh tomcat@34.142.247.158 hostname '
+			sh 'ssh tomcat@${targetServer} hostname '
 		
 		}
 		
@@ -28,7 +30,7 @@ node{
 		//}
 		sshagent(['tomcatID']) {
     		
-			sh 'ssh tomcat@34.142.247.158 hostname'
+			sh 'ssh tomcat@${targetServer} hostname'
 		
 		}
 	}
