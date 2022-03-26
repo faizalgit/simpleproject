@@ -26,7 +26,7 @@ node{
 			sshagent(['tomcatID']) {
     			echo env.targetServer
 			sh "ssh tomcat@${env.targetServer} ${serverBin}/shutdown.sh"
-			sh "ssh tomcat@${env.t argetServer} curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject.war"
+			sh "ssh tomcat@${env.targetServer} curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject.war"
 				sh "ssh tomcat@${env.targetServer} cp ${appName} ${deployPath}"
 		
 		}
