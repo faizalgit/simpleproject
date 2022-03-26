@@ -5,6 +5,7 @@ def tomcatBin
 def deployPath
 def targetServer
 node{
+	env.targetServer='34.142.247.158'
 	
       	stage("compile"){
             if (fileExists('simpleproject')){
@@ -17,7 +18,6 @@ node{
 	
       	}
 	stage("deploy"){
-		env.targetServer='34.142.247.158'
 		tomcatBin='/opt/tomcat/bin'
 		deployPath='/opt/tomcat/webapps'
 		sshagent(['tomcatID']) {
