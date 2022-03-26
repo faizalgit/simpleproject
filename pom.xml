@@ -7,6 +7,6 @@
   <name>simpleproject</name>
   <description>simple project to test</description>
   <build>
-    <finalName>simpleproject_${version}</finalName>
+    <finalName>simpleproject</finalName>
   </build>
 </project>
