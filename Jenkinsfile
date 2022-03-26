@@ -19,10 +19,10 @@ node{
 	stage("deploy"){
 		env.targetServer='34.142.247.158'
 		tomcatBin='/opt/tomcat/bin'
-		deployPath='/opt/tomcat/webapp'
+		deployPath='/opt/tomcat/webapps'
 		sshagent(['tomcatID']) {
     			echo env.targetServer
-			sh "ssh tomcat@${env.targetServer} ${tomcatBin}/startup.sh"
+			sh "ssh tomcat@${env.targetServer} ${tomcatBin}/shutdown.sh"
 			sh "ssh tomcat@${env.targetServer} cd ${deployPath} && curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war"
 		
 		}
