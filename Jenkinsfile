@@ -21,7 +21,7 @@ node{
 		tomcatBin='/opt/tomcat/bin'
 		deployPath='/opt/tomcat/webapp'
 		sshagent(['tomcatID']) {
-    		
+    			echo targetServer
 			sh 'ssh tomcat@${targetServer} hostname '
 		
 		}
