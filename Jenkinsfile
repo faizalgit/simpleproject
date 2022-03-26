@@ -6,8 +6,10 @@ def deployPath
 def targetServer
 node{
 	env.targetServer='34.142.247.158'
-	
-      	stage("compile"){
+	serverBin='/opt/tomcat/bin'
+	deployPath='/opt/tomcat/webapps'
+	appName='simpleproject.war'
+	stage("compile"){
             if (fileExists('simpleproject')){
                   sh 'rm -r simpleproject'
             }
@@ -18,12 +20,11 @@ node{
 	
       	}
 	stage("deploy"){
-		tomcatBin='/opt/tomcat/bin'
-		deployPath='/opt/tomcat/webapps'
-		sshagent(['tomcatID']) {
+			sshagent(['tomcatID']) {
     			echo env.targetServer
-			sh "ssh tomcat@${env.targetServer} ${tomcatBin}/shutdown.sh"
-			sh "ssh tomcat@${env.targetServer} cd ${deployPath};ssh tomcat@${env.targetServer} pwd;curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war"
+			sh "ssh tomcat@${env.targetServer} ${serverBin}/shutdown.sh"
+			sh "ssh tomcat@${env.t argetServer} curl http://104.196.30.112:8081/repository/maven-nexus-repo/com/simpleproject/simpleproject/v1/simpleproject-v1.war"
+				sh "ssh tomcat@${env.targetServer} cp ${appName} ${deployPath}"
 		
 		}
 		
